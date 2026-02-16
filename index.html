@@ -60,7 +60,52 @@
             color: var(--ucl-purple);
             font-weight: 600;
         }
+/* সাব-মেনু হাইড করে রাখা */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 180px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    list-style: none;
+    padding: 10px 0;
+    z-index: 1000;
+}
 
+/* লিস্ট আইটেমকে রিলেটিভ করা যাতে সাব-মেনু ঠিক নিচে থাকে */
+nav ul li {
+    position: relative;
+}
+
+/* হোভার করলে সাব-মেনু দেখাবে */
+nav ul li:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    width: 100%;
+}
+
+.submenu li a {
+    padding: 10px 20px;
+    display: block;
+    border-bottom: none !important; /* সাব-মেনুতে আন্ডারলাইন হবে না */
+    color: var(--text-dark);
+}
+
+.submenu li a:hover {
+    background: var(--ucl-light-purple);
+    color: var(--ucl-purple);
+}
+
+/* Active ক্লাস স্টাইল (নিশ্চিত করার জন্য) */
+nav ul li a.active {
+    color: var(--ucl-purple) !important;
+    border-bottom: 3px solid var(--ucl-purple) !important;
+}
         nav ul {
             display: flex;
             list-style: none;
@@ -374,46 +419,47 @@
             display: block;
         }
 
-/* company made */
-/* Main Panel Styling */
-.panel-container {
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: fixed;
-    bottom: -12px;
-    right: 33px;
-}
+        /* company made */
+        /* Main Panel Styling */
+        .panel-container {
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: fixed;
+            bottom: -12px;
+            right: 33px;
+        }
 
 
-/* YAVA Icon/Logo Shape */
-.made-company-logo{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #000;
-    font-weight: bold;
-    font-family: 'Segoe UI', sans-serif;
-    box-shadow: 0 6px 10px rgb(154 154 154);
-}
+        /* YAVA Icon/Logo Shape */
+        .made-company-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: bold;
+            font-family: 'Segoe UI', sans-serif;
+            box-shadow: 0 6px 10px rgb(154 154 154);
+        }
 
-/* Text Styling */
-.brand-text {
-    margin-top: 8px;
-    color: #000;
-    font-size: 10px;
-    letter-spacing: 2px;
-    font-family: 'Orbitron', sans-serif; /* Futuristic Font */
-    opacity: 0.8;
-    text-shadow: 0 6px 10px rgb(0 0 0);
-}
+        /* Text Styling */
+        .brand-text {
+            margin-top: 8px;
+            color: #000;
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-family: 'Orbitron', sans-serif;
+            /* Futuristic Font */
+            opacity: 0.8;
+            text-shadow: 0 6px 10px rgb(0 0 0);
+        }
     </style>
 </head>
 
@@ -427,7 +473,7 @@
                 </span>
                 <span class="ucl-subtext">UCL Alumni Connect Platform</span>
             </div>
-            <nav>
+            <!-- <nav>
                 <ul>
                     <li><a href="#" class="active">Home</a></li>
                     <li><a href="#">Alumni Network</a></li>
@@ -435,6 +481,74 @@
                     <li><a href="#">Alumni Services</a></li>
                     <li><a href="#">Help</a></li>
                     <li><button class="btn-careers">Careers</button></li>
+                </ul>
+            </nav> -->
+            <nav>
+                <ul class="nav-links">
+                    
+                    <li class="has-submenu">
+                        <a href="#" class="nav-item">Home</a>
+                        <ul class="submenu">
+                            <li><a href="#">Feed</a></li>
+                            <li><a href="#">My Profile</a></li>
+                            <li><a href="#">News</a></li>
+                            <li><a href="#">UCL Alumni Website</a></li>
+                            <li><a href="#">UCL Bursaries and Scholarships</a></li>
+                            <li><a href="#">Donations</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" class="nav-item">Alumni Network</a>
+                        <ul class="submenu">
+                            <li><a href="#">Find Alumni</a></li>
+                            <li><a href="#">Groups</a></li>
+                            <li><a href="#">How to Contact Alumni</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms and Conditions</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" class="nav-item">Calendar</a>
+                        <ul class="submenu">
+                            <li><a href="#">Events</a></li>
+                            <li><a href="#">My Calendar</a></li>
+                            <li><a href="#">Past Events</a></li>
+                            <li><a href="#">Alumni Events Committee</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" class="nav-item">Alumni Services</a>
+                        <ul class="submenu">
+                            <li><a href="#">Lifelong Learning</a></li>
+                            <li><a href="#">Exclusive Alumni Discounts</a></li>
+                            <li><a href="#">Library & Research Access</a></li>
+                            <li><a href="#">Alumni Mentoring</a></li>
+                            <li><a href="#">Will Writing Services</a></li>
+                            <li><a href="#">Portico</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" class="nav-item">Help</a>
+                        <ul class="submenu">
+                            <li><a href="#">General</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">IT Support</a></li>
+                            <li><a href="#">Your Alumni Team Support</a></li>
+                            <li><a href="#">Donations & Giving</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" class="btn-careers">Careers</a>
+                        <ul class="submenu">
+                            <li><a href="#">Career Opportunities</a></li>
+                            <li><a href="#">Recruiter Access</a></li>
+                            <li><a href="#">Candidate Access</a></li>
+                            <li><a href="#">List of Participating Companies</a></li>
+                            <li><a href="#">Candidate User Guide</a></li>
+                            <li><a href="#">Recruiter User Guide</a></li>
+                        </ul>
+                    </li>
+                    
                 </ul>
             </nav>
             <div class="header-icons">
@@ -581,6 +695,18 @@
     </div>
 
     <script>
+        // Nav link active toggle
+        const navLinks = document.querySelectorAll('.nav-item');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                // আগের সব active ক্লাস রিমুভ করা
+                navLinks.forEach(item => item.classList.remove('active'));
+                // বর্তমান ক্লিকে active ক্লাস যোগ করা
+                this.classList.add('active');
+            });
+        });
+
         function switchTab(event, tabId) {
             // Remove active class from all tabs
             const tabs = document.querySelectorAll('.tab');
@@ -595,6 +721,7 @@
             document.getElementById(tabId).classList.add('active');
         }
     </script>
+
 
 </body>
 
